@@ -40,6 +40,7 @@ describe('Namespace Routes', () => {
       expect(data.namespaces).toContain('solana-mainnet-beta');
       expect(data.namespaces).toContain('uniswap');
       expect(data.namespaces).toContain('jupiter');
+      expect(data.namespaces).toContain('koalaSwap');
     });
 
     it('should return namespaces sorted alphabetically', async () => {

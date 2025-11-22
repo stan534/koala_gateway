@@ -18,6 +18,7 @@ import { solanaRoutes } from './chains/solana/solana.routes';
 import { configRoutes } from './config/config.routes';
 import { register0xRoutes } from './connectors/0x/0x.routes';
 import { jupiterRoutes } from './connectors/jupiter/jupiter.routes';
+import { koalaSwapRoutes } from './connectors/koala-swap/koala-swap.routes';
 import { meteoraRoutes } from './connectors/meteora/meteora.routes';
 import { pancakeswapRoutes } from './connectors/pancakeswap/pancakeswap.routes';
 import { pancakeswapSolRoutes } from './connectors/pancakeswap-sol/pancakeswap-sol.routes';
@@ -268,6 +269,12 @@ const configureGatewayServer = () => {
 
     // PancakeSwap Solana routes
     app.register(pancakeswapSolRoutes, { prefix: '/connectors/pancakeswap-sol' });
+
+    // Koala Swap routes
+    app.register(koalaSwapRoutes.router, {
+      prefix: '/connectors/koala-swap/router',
+    });
+    app.register(koalaSwapRoutes.clmm, { prefix: '/connectors/koala-swap/clmm' });
   };
 
   // Register routes on main server

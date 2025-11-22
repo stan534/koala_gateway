@@ -50,6 +50,10 @@ configurations:
     configurationPath: chains/ethereum/polygon.yml
     schemaPath: ethereum-network-schema.json
 
+  $namespace ethereum-koala:
+    configurationPath: chains/ethereum/koala.yml
+    schemaPath: ethereum-network-schema.json
+
   # Solana networks
   $namespace solana-mainnet-beta:
     configurationPath: chains/solana/mainnet-beta.yml
@@ -87,6 +91,10 @@ configurations:
   $namespace pancakeswap-sol:
     configurationPath: connectors/pancakeswap-sol.yml
     schemaPath: pancakeswap-sol-schema.json
+
+  $namespace koala-swap:
+    configurationPath: connectors/koala-swap.yml
+    schemaPath: koala-swap-schema.json
 
   # RPC providers
   $namespace helius:

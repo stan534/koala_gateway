@@ -69,6 +69,9 @@ export async function getConnector(
   } else if (connector === 'meteora') {
     const { Meteora } = await import('../connectors/meteora/meteora');
     return await Meteora.getInstance(network);
+  } else if (connector === 'koala-swap') {
+    const { KoalaSwap } = await import('../connectors/koala-swap/koala-swap');
+    return await KoalaSwap.getInstance(network);
   } else {
     throw new Error('unsupported chain or connector');
   }
