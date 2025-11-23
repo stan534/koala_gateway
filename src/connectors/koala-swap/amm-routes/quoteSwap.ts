@@ -286,7 +286,7 @@ export const quoteSwapRoute: FastifyPluginAsync = async (fastify) => {
           properties: {
             ...QuoteSwapRequest.properties,
             network: { type: 'string', default: 'base' },
-            baseToken: { type: 'string', examples: ['WETH'] },
+            baseToken: { type: 'string', examples: ['WUNIT0'] },
             quoteToken: { type: 'string', examples: ['USDC'] },
             amount: { type: 'number', examples: [0.001] },
             side: { type: 'string', enum: ['BUY', 'SELL'], examples: ['SELL'] },

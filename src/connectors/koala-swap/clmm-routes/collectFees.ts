@@ -63,10 +63,10 @@ export async function collectFees(
   const token0 = koalaSwap.getTokenByAddress(position.token0);
   const token1 = koalaSwap.getTokenByAddress(position.token1);
 
-  // Determine base and quote tokens - WETH or lower address is base
+  // Determine base and quote tokens - WUNIT0 or lower address is base
   const isBaseToken0 =
-    token0.symbol === 'WETH' ||
-    (token1.symbol !== 'WETH' && token0.address.toLowerCase() < token1.address.toLowerCase());
+    token0.symbol === 'WUNIT0' ||
+    (token1.symbol !== 'WUNIT0' && token0.address.toLowerCase() < token1.address.toLowerCase());
 
   // Get fees owned
   const feeAmount0 = position.tokensOwed0;

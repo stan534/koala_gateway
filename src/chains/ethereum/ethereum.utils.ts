@@ -27,7 +27,7 @@ export const getAvailableEthereumNetworks = (): string[] => {
     return files.filter((file) => file.endsWith('.yml')).map((file) => file.replace('.yml', ''));
   } catch (error) {
     // Fallback to hardcoded list if directory doesn't exist
-    return ['mainnet', 'arbitrum', 'optimism', 'base', 'sepolia', 'bsc', 'avalanche', 'celo', 'polygon'];
+    return ['mainnet', 'arbitrum', 'optimism', 'base', 'sepolia', 'bsc', 'avalanche', 'celo', 'polygon', 'koala'];
   }
 };
 

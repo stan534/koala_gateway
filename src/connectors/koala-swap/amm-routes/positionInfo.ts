@@ -57,7 +57,7 @@ export const positionInfoRoute: FastifyPluginAsync = async (fastify) => {
               type: 'string',
               examples: [''],
             },
-            baseToken: { type: 'string', examples: ['WETH'] },
+            baseToken: { type: 'string', examples: ['WUNIT0'] },
             quoteToken: { type: 'string', examples: ['USDC'] },
           },
         },

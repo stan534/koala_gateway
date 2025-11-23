@@ -193,7 +193,7 @@ export const quoteLiquidityRoute: FastifyPluginAsync = async (fastify) => {
               type: 'string',
               examples: [''],
             },
-            baseToken: { type: 'string', examples: ['WETH'] },
+            baseToken: { type: 'string', examples: ['WUNIT0'] },
             quoteToken: { type: 'string', examples: ['USDC'] },
             baseTokenAmount: { type: 'number', examples: [0.001] },
             quoteTokenAmount: { type: 'number', examples: [2.5] },
