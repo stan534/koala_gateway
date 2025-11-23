@@ -138,8 +138,8 @@ export async function getPositionsOwned(
 
       // Determine which token is base and which is quote
       const isBaseToken0 =
-        token0.symbol === 'WETH' ||
-        (token1.symbol !== 'WETH' && token0.address.toLowerCase() < token1.address.toLowerCase());
+        token0.symbol === 'WUNIT0' ||
+        (token1.symbol !== 'WUNIT0' && token0.address.toLowerCase() < token1.address.toLowerCase());
 
       const [baseTokenAddress, quoteTokenAddress] = isBaseToken0
         ? [token0.address, token1.address]

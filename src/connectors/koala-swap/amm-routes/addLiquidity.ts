@@ -33,42 +33,42 @@ async function addLiquidity(
 ): Promise<AddLiquidityResponseType> {
   const networkToUse = network;
 
-  // Handle ETH->WETH wrapping if needed for baseToken
+  // Handle ETH->WUNIT0 wrapping if needed for baseToken
   let actualBaseToken = baseToken;
   let baseWrapTxHash = null;
   if (baseToken === 'ETH') {
     const koalaSwap = await KoalaSwap.getInstance(networkToUse);
-    const wethToken = koalaSwap.getTokenBySymbol('WETH');
+    const wethToken = koalaSwap.getTokenBySymbol('WUNIT0');
     if (!wethToken) {
-      throw new Error('WETH token not found');
+      throw new Error('WUNIT0 token not found');
     }
 
-    logger.info(`ETH detected as base token, wrapping ${baseTokenAmount} ETH to WETH first`);
+    logger.info(`ETH detected as base token, wrapping ${baseTokenAmount} ETH to WUNIT0 first`);
 
     const wrapResult = await wrapEthereum(fastify, networkToUse, walletAddress, baseTokenAmount.toString());
     baseWrapTxHash = wrapResult.signature;
-    actualBaseToken = 'WETH';
+    actualBaseToken = 'WUNIT0';
 
-    logger.info(`Successfully wrapped ${baseTokenAmount} ETH to WETH, transaction hash: ${baseWrapTxHash}`);
+    logger.info(`Successfully wrapped ${baseTokenAmount} ETH to WUNIT0, transaction hash: ${baseWrapTxHash}`);
   }
 
-  // Handle ETH->WETH wrapping if needed for quoteToken
+  // Handle ETH->WUNIT0 wrapping if needed for quoteToken
   let actualQuoteToken = quoteToken;
   let quoteWrapTxHash = null;
   if (quoteToken === 'ETH') {
     const koalaSwap = await KoalaSwap.getInstance(networkToUse);
-    const wethToken = koalaSwap.getTokenBySymbol('WETH');
+    const wethToken = koalaSwap.getTokenBySymbol('WUNIT0');
     if (!wethToken) {
-      throw new Error('WETH token not found');
+      throw new Error('WUNIT0 token not found');
     }
 
-    logger.info(`ETH detected as quote token, wrapping ${quoteTokenAmount} ETH to WETH first`);
+    logger.info(`ETH detected as quote token, wrapping ${quoteTokenAmount} ETH to WUNIT0 first`);
 
     const wrapResult = await wrapEthereum(fastify, networkToUse, walletAddress, quoteTokenAmount.toString());
     quoteWrapTxHash = wrapResult.signature;
-    actualQuoteToken = 'WETH';
+    actualQuoteToken = 'WUNIT0';
 
-    logger.info(`Successfully wrapped ${quoteTokenAmount} ETH to WETH, transaction hash: ${quoteWrapTxHash}`);
+    logger.info(`Successfully wrapped ${quoteTokenAmount} ETH to WUNIT0, transaction hash: ${quoteWrapTxHash}`);
   }
 
   // Get quote first to calculate optimal amounts and get execution data
@@ -113,8 +113,8 @@ async function addLiquidity(
 
   let tx;
 
-  // Check if one of the tokens is WETH
-  if (quote.baseTokenObj.symbol === 'WETH') {
+  // Check if one of the tokens is WUNIT0
+  if (quote.baseTokenObj.symbol === 'WUNIT0') {
     // Check allowance for quote token
     const tokenContract = ethereum.getContract(quote.quoteTokenObj.address, wallet);
     const allowance = await ethereum.getERC20Allowance(
@@ -152,7 +152,7 @@ async function addLiquidity(
         gasLimit: 300000,
       },
     );
-  } else if (quote.quoteTokenObj.symbol === 'WETH') {
+  } else if (quote.quoteTokenObj.symbol === 'WUNIT0') {
     // Check allowance for base token
     const tokenContract = ethereum.getContract(quote.baseTokenObj.address, wallet);
     const allowance = await ethereum.getERC20Allowance(

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Koala",
+    "symbol": "KOALA",
+    "address": "0x0C8B808c6A66ae6Ac075F70c548898205810CaC1",
+    "decimals": 18,
+    "chainId": 88811
+  },
+  {
+    "name": "Wrapped Unit0",
+    "symbol": "WUNIT0",
+    "address": "0x4200000000000000000000000000000000000006",
+    "decimals": 18,
+    "chainId": 88811
+  }
+]
