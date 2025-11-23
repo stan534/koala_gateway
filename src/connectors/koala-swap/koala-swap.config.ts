@@ -5,13 +5,13 @@ import { ConfigManagerV2 } from '../../services/config-manager-v2';
 export namespace KoalaSwapConfig {
   // Supported networks for Koala Swap
   // Currently supports Unit Zero Mainnet (koala network)
+  // 'mainnet' is an alias for 'koala' network
   export const chain = 'ethereum';
-  export const networks = getAvailableEthereumNetworks().filter((network) => ['koala'].includes(network));
+  export const networks = getAvailableEthereumNetworks().filter((network) => ['koala', 'mainnet'].includes(network));
   export type Network = string;
 
   // Supported trading types
-  // Note: Koala Swap only supports V3 (CLMM) and Router, no V2 (AMM)
-  export const tradingTypes = ['clmm', 'router'] as const;
+  export const tradingTypes = ['amm', 'clmm', 'router'] as const;
 
   export interface RootConfig {
     // Global configuration

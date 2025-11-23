@@ -103,6 +103,10 @@ const swaggerOptions = {
         name: '/connector/pancakeswap',
         description: 'PancakeSwap EVM connector endpoints',
       },
+      {
+        name: '/connector/koala-swap',
+        description: 'Koala Swap connector endpoints',
+      },
     ],
     components: {
       parameters: {
@@ -274,6 +278,7 @@ const configureGatewayServer = () => {
     app.register(koalaSwapRoutes.router, {
       prefix: '/connectors/koala-swap/router',
     });
+    app.register(koalaSwapRoutes.amm, { prefix: '/connectors/koala-swap/amm' });
     app.register(koalaSwapRoutes.clmm, { prefix: '/connectors/koala-swap/clmm' });
   };
 

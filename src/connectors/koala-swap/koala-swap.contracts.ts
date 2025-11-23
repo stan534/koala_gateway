@@ -23,18 +23,24 @@ export interface NetworkContractAddresses {
   [network: string]: KoalaSwapContractAddresses;
 }
 
+// Contract addresses for Koala Swap on Unit Zero Mainnet
+// Source: https://docs.koalaswap.app/developers/contracts
+const koalaSwapContracts = {
+  // V2 contracts
+  koalaSwapV2RouterAddress: '0x7A2044296804EDec53beAAA8fe9D802E5be19e0a', // SwapRouter
+  koalaSwapV2FactoryAddress: '0xcF3Ee60d29531B668Ae89FD3577E210082Da220b', // Factory
+  // V3 contracts
+  koalaSwapV3SwapRouterAddress: '0x7A2044296804EDec53beAAA8fe9D802E5be19e0a',
+  koalaSwapV3NftManagerAddress: '0xa759C5ccF40acdf101BC6623f5b65363186a293b',
+  koalaSwapV3QuoterV2ContractAddress: '0xA02C6705e8B54a27113aCc0283Fd3882582433dc',
+  koalaSwapV3FactoryAddress: '0xcF3Ee60d29531B668Ae89FD3577E210082Da220b',
+  koalaSwapV3QuoterAddress: '0x340dC35d8caA8F696df4BB79d3b9743e6D964E96',
+};
+
 export const contractAddresses: NetworkContractAddresses = {
-  koala: {
-    // V2 contracts - Koala Swap addresses on Unit Zero Mainnet
-    koalaSwapV2RouterAddress: '0x7A2044296804EDec53beAAA8fe9D802E5be19e0a', // Using V3 router for now, update when V2 router is available
-    koalaSwapV2FactoryAddress: '0xcF3Ee60d29531B668Ae89FD3577E210082Da220b', // Using V3 factory for now, update when V2 factory is available
-    // V3 contracts - Koala Swap addresses on Unit Zero Mainnet
-    koalaSwapV3SwapRouterAddress: '0x7A2044296804EDec53beAAA8fe9D802E5be19e0a',
-    koalaSwapV3NftManagerAddress: '0xa759C5ccF40acdf101BC6623f5b65363186a293b',
-    koalaSwapV3QuoterV2ContractAddress: '0xA02C6705e8B54a27113aCc0283Fd3882582433dc',
-    koalaSwapV3FactoryAddress: '0xcF3Ee60d29531B668Ae89FD3577E210082Da220b',
-    koalaSwapV3QuoterAddress: '0x340dC35d8caA8F696df4BB79d3b9743e6D964E96',
-  },
+  koala: koalaSwapContracts,
+  // Alias 'mainnet' to 'koala' for convenience (Unit Zero Mainnet)
+  mainnet: koalaSwapContracts,
 };
 
 /**
