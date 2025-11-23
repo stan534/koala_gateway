@@ -165,7 +165,7 @@ export async function openPosition(
   // Get position manager address for allowance checks
   const positionManagerAddress = getKoalaSwapV3NftManagerAddress(network);
 
-  // Check token0 allowance if needed (including WETH)
+  // Check token0 allowance if needed (including WUNIT0)
   if (!token0Amount.equalTo(0)) {
     const token0Contract = ethereum.getContract(token0.address, wallet);
     const allowance0 = await ethereum.getERC20Allowance(
@@ -188,7 +188,7 @@ export async function openPosition(
     }
   }
 
-  // Check token1 allowance if needed (including WETH)
+  // Check token1 allowance if needed (including WUNIT0)
   if (!token1Amount.equalTo(0)) {
     const token1Contract = ethereum.getContract(token1.address, wallet);
     const allowance1 = await ethereum.getERC20Allowance(

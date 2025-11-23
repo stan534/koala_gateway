@@ -8,7 +8,7 @@ import { KoalaSwapConfig } from './koala-swap.config';
 const ethereumChainConfig = getEthereumChainConfig();
 
 // Constants for examples
-const BASE_TOKEN = 'WETH';
+const BASE_TOKEN = 'WUNIT0';
 const QUOTE_TOKEN = 'USDC';
 const SWAP_AMOUNT = 0.001;
 const CLMM_POOL_ADDRESS_EXAMPLE = '0x0000000000000000000000000000000000000000'; // Example Koala Swap V3 pool

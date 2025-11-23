@@ -43,7 +43,7 @@ export const quotePositionRoute: FastifyPluginAsync = async (fastify) => {
               type: 'string',
               examples: [''],
             },
-            baseToken: { type: 'string', examples: ['WETH'] },
+            baseToken: { type: 'string', examples: ['WUNIT0'] },
             quoteToken: { type: 'string', examples: ['USDC'] },
             baseTokenAmount: { type: 'number', examples: [0.001] },
             quoteTokenAmount: { type: 'number', examples: [3] },
@@ -127,10 +127,10 @@ export const quotePositionRoute: FastifyPluginAsync = async (fastify) => {
         // - tick = floor(log(token1/token0) / log(1.0001))
         //
         // For this pool:
-        // - token0 = WETH (18 decimals)
+        // - token0 = WUNIT0 (18 decimals)
         // - token1 = USDC (6 decimals)
-        // - Human readable price = 2637 USDC per WETH
-        // - But in raw amounts: 2637 * 10^6 USDC units per 10^18 WETH units
+        // - Human readable price = 2637 USDC per WUNIT0
+        // - But in raw amounts: 2637 * 10^6 USDC units per 10^18 WUNIT0 units
         // - So token1/token0 in raw units = (2637 * 10^6) / 10^18 = 2637 * 10^-12
         // - This is a very small number! Hence the negative tick.
 
@@ -139,7 +139,7 @@ export const quotePositionRoute: FastifyPluginAsync = async (fastify) => {
 
         // When calculating ticks from human-readable prices, we need to account for decimals
         const priceToTickWithDecimals = (humanPrice: number): number => {
-          // Convert human price (USDC per WETH) to raw price (USDC units per WETH unit)
+          // Convert human price (USDC per WUNIT0) to raw price (USDC units per WUNIT0 unit)
           const rawPrice = humanPrice * Math.pow(10, token1.decimals - token0.decimals);
           return Math.floor(Math.log(rawPrice) / Math.log(1.0001));
         };

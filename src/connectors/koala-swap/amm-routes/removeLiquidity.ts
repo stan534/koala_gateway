@@ -151,25 +151,25 @@ export const removeLiquidityRoute: FastifyPluginAsync = async (fastify) => {
         const gasPriceGwei = gasPrice ? parseFloat(utils.formatUnits(gasPrice, 'gwei')) : undefined;
         const gasOptions = await ethereum.prepareGasOptions(gasPriceGwei, maxGas || AMM_REMOVE_LIQUIDITY_GAS_LIMIT);
 
-        // Check if one of the tokens is WETH
-        if (baseTokenObj.symbol === 'WETH') {
-          // Remove liquidity WETH + Token
+        // Check if one of the tokens is WUNIT0
+        if (baseTokenObj.symbol === 'WUNIT0') {
+          // Remove liquidity WUNIT0 + Token
           tx = await router.removeLiquidityETH(
-            token0IsBase ? token1 : token0, // The non-WETH token
+            token0IsBase ? token1 : token0, // The non-WUNIT0 token
             liquidityToRemove,
             token0IsBase ? quoteTokenMinAmount : baseTokenMinAmount, // Min amount of the token
-            token0IsBase ? baseTokenMinAmount : quoteTokenMinAmount, // Min amount of WETH
+            token0IsBase ? baseTokenMinAmount : quoteTokenMinAmount, // Min amount of WUNIT0
             walletAddress,
             deadline,
             gasOptions,
           );
-        } else if (quoteTokenObj.symbol === 'WETH') {
-          // Remove liquidity Token + WETH
+        } else if (quoteTokenObj.symbol === 'WUNIT0') {
+          // Remove liquidity Token + WUNIT0
           tx = await router.removeLiquidityETH(
-            token0IsBase ? token0 : token1, // The non-WETH token
+            token0IsBase ? token0 : token1, // The non-WUNIT0 token
             liquidityToRemove,
             token0IsBase ? baseTokenMinAmount : quoteTokenMinAmount, // Min amount of the token
-            token0IsBase ? quoteTokenMinAmount : baseTokenMinAmount, // Min amount of WETH
+            token0IsBase ? quoteTokenMinAmount : baseTokenMinAmount, // Min amount of WUNIT0
             walletAddress,
             deadline,
             gasOptions,

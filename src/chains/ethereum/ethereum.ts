@@ -853,6 +853,11 @@ export class Ethereum {
       symbol: 'WCELO',
       nativeSymbol: 'CELO',
     },
+    koala: {
+      address: '0x4200000000000000000000000000000000000006',
+      symbol: 'WUNIT0',
+      nativeSymbol: 'UNIT0',
+    },
   };
 
   /**

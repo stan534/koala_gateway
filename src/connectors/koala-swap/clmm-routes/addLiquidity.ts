@@ -54,7 +54,7 @@ export async function addLiquidity(
 
   const slippageTolerance = new Percent(Math.floor((slippagePct ?? koalaSwap.config.slippagePct) * 100), 10000);
 
-  const baseTokenSymbol = token0.symbol === 'WETH' ? token0.symbol : token1.symbol;
+  const baseTokenSymbol = token0.symbol === 'WUNIT0' ? token0.symbol : token1.symbol;
   const isBaseToken0 = token0.symbol === baseTokenSymbol;
 
   let token0Amount = CurrencyAmount.fromRawAmount(token0, 0);
@@ -98,7 +98,7 @@ export async function addLiquidity(
   const { calldata, value } = NonfungiblePositionManager.addCallParameters(newPosition, increaseLiquidityOptions);
 
   // Check allowances
-  if (!token0Amount.equalTo(0) && token0.symbol !== 'WETH') {
+  if (!token0Amount.equalTo(0) && token0.symbol !== 'WUNIT0') {
     const token0Contract = ethereum.getContract(token0.address, wallet);
     const allowance0 = await ethereum.getERC20Allowance(
       token0Contract,
@@ -116,7 +116,7 @@ export async function addLiquidity(
     }
   }
 
-  if (!token1Amount.equalTo(0) && token1.symbol !== 'WETH') {
+  if (!token1Amount.equalTo(0) && token1.symbol !== 'WUNIT0') {
     const token1Contract = ethereum.getContract(token1.address, wallet);
     const allowance1 = await ethereum.getERC20Allowance(
       token1Contract,
