@@ -5,6 +5,7 @@ import { PancakeswapConfig } from '#src/connectors/pancakeswap/pancakeswap.confi
 
 import { ZeroXConfig } from '../../connectors/0x/0x.config';
 import { JupiterConfig } from '../../connectors/jupiter/jupiter.config';
+import { KoalaSwapConfig } from '../../connectors/koala-swap/koala-swap.config';
 import { MeteoraConfig } from '../../connectors/meteora/meteora.config';
 import { PancakeswapSolConfig } from '../../connectors/pancakeswap-sol/pancakeswap-sol.config';
 import { RaydiumConfig } from '../../connectors/raydium/raydium.config';
@@ -51,6 +52,12 @@ export const connectorsConfig = [
     trading_types: [...UniswapConfig.tradingTypes],
     chain: UniswapConfig.chain,
     networks: [...UniswapConfig.networks],
+  },
+  {
+    name: 'koala-swap',
+    trading_types: [...KoalaSwapConfig.tradingTypes],
+    chain: KoalaSwapConfig.chain,
+    networks: [...KoalaSwapConfig.networks],
   },
   {
     name: '0x',
